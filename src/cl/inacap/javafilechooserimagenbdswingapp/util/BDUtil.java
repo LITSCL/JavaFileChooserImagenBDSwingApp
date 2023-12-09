@@ -4,22 +4,22 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class BDUtil {
-	private final String servidor = "localhost"; //Direcci髇 del servidor.
+	private final String servidor = "localhost"; //Direcci贸n del servidor.
 	private final String baseDeDatos = "dbjavafilechooserimagenbdswingapp"; //Nombre de la base de datos.
 	private final String usuario = "root"; //Usuario para conectarse al dbms.
-	private final String clave = "root"; //Contrase馻 para conectarse al dbms.
+	private final String clave = "root"; //Contrase帽a para conectarse al dbms.
 	private Connection conexion;
 	
 	public Connection getConexion() {
 		return conexion;
 	}
 	
-	//M閠odo que conecta el programa a la base de datos.
+	//M茅todo que conecta el programa a la base de datos.
 	public boolean conectar() {
 		try {
-			String url = "jdbc:mysql://" + servidor + ":3306/" + baseDeDatos; //Esta es la url de conexi髇 para la base de datos.
+			String url = "jdbc:mysql://" + servidor + ":3306/" + baseDeDatos; //Esta es la url de conexi贸n para la base de datos.
 			Class.forName("com.mysql.cj.jdbc.Driver"); //Class.forname es necesario para registrar el driver a utilizar.
-			this.conexion=DriverManager.getConnection(url, usuario, clave); //Este m閠odo trata de establecer la conexi髇 a la base de datos entregada utilizando el driver registrado.
+			this.conexion=DriverManager.getConnection(url, usuario, clave); //Este m茅todo trata de establecer la conexi贸n a la base de datos entregada utilizando el driver registrado.
 			return true;
 		} catch (Exception ex) {
 			return false;
@@ -28,9 +28,9 @@ public class BDUtil {
 
 	public void desconectar() {
 		try {
-			this.conexion.close();	//Esta instrucci髇 avisa al dbms que se va a desconectar.
+			this.conexion.close();	//Esta instrucci贸n avisa al dbms que se va a desconectar.
 		} catch(Exception ex) {
 			
 		}
 	}
-} 
+}

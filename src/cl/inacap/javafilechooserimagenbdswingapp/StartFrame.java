@@ -74,16 +74,16 @@ public class StartFrame extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser archivo = new JFileChooser();
 				FileNameExtensionFilter filtro = new FileNameExtensionFilter("Formatos de Imagen (*.PNG,*.JPG,*.JPEG)","png","jpg","jpeg");
-				archivo.addChoosableFileFilter(filtro); //Se le a馻de el filtro al JFileChooser (Para que al usuario se le sea mas f醕il buscar una imagen).
+				archivo.addChoosableFileFilter(filtro); //Se le a帽ade el filtro al JFileChooser (Para que al usuario se le sea mas f谩cil buscar una imagen).
 				archivo.setDialogTitle("Busque la imagen");
-				int ventana = archivo.showOpenDialog(null); //Esta instrucci髇 habre la ventana que permite seleccionar el archivo.
-				if (ventana == JFileChooser.APPROVE_OPTION) { //Aca se esta consultando si el usuario le dio click al boton "Abrir" (En el caso de que lo haya hecho se ejecuta el c骴igo).
-					File fi = archivo.getSelectedFile(); //Esta instrucci髇 contiene la ruta del archivo.
-					textImagenSeleccionada.setText(String.valueOf(fi)); //Se modifica el texto con la ruta de la imagen seleccionada (Tambi閚 se puede utilizar el toString para refindir el dato).
+				int ventana = archivo.showOpenDialog(null); //Esta instrucci贸n habre la ventana que permite seleccionar el archivo.
+				if (ventana == JFileChooser.APPROVE_OPTION) { //Aca se esta consultando si el usuario le dio click al boton "Abrir" (En el caso de que lo haya hecho se ejecuta el c贸digo).
+					File fi = archivo.getSelectedFile(); //Esta instrucci贸n contiene la ruta del archivo.
+					textImagenSeleccionada.setText(String.valueOf(fi)); //Se modifica el texto con la ruta de la imagen seleccionada (Tambi茅n se puede utilizar el toString para refindir el dato).
 					
 					Image imagen = getToolkit().getImage(textImagenSeleccionada.getText());
-					imagen = imagen.getScaledInstance(500, 500, Image.SCALE_DEFAULT); //Se establece el tama駉 de la imagen (Deben ser las mismas dimensiones que el label).
-					lblVisualizacionImagenSeleccionada.setIcon(new ImageIcon(imagen)); //Se a馻de la imagen al label para que se muestre.
+					imagen = imagen.getScaledInstance(500, 500, Image.SCALE_DEFAULT); //Se establece el tama帽o de la imagen (Deben ser las mismas dimensiones que el label).
+					lblVisualizacionImagenSeleccionada.setIcon(new ImageIcon(imagen)); //Se a帽ade la imagen al label para que se muestre.
 				}
 			}
 		});
@@ -105,7 +105,7 @@ public class StartFrame extends JFrame {
 				boolean resultado = false;
 				try {
 					//1. Conectarse a la base de datos.
-					System.out.println("Conexi髇 a la DB: " + bdUtil.conectar());
+					System.out.println("Conexi贸n a la DB: " + bdUtil.conectar());
 					//2. Definir la sentencia sql (INSERT).
 					String sql = "INSERT INTO imagen" + "(ruta,imagen)" + " VALUES(?,?)"; 
 					FileInputStream archivoImagen = new FileInputStream(textImagenSeleccionada.getText());
@@ -116,13 +116,13 @@ public class StartFrame extends JFrame {
 					//3. Ejecutar el SQL.
 					st.executeUpdate();
 					resultado = true;
-					System.out.println("Ejecuci髇 del SQL: " + resultado);
+					System.out.println("Ejecuci贸n del SQL: " + resultado);
 				} catch (Exception ex) {
 					resultado = false;
-					System.out.println("Ejecuci髇 del SQL: " + resultado);
+					System.out.println("Ejecuci贸n del SQL: " + resultado);
 					//4. Desconectarse.
-				} finally { //Esta instrucci髇 se ejecuta se caiga o no el programa.
-					bdUtil.desconectar(); //Envia la petici髇 de desconecci髇 al dbms.
+				} finally { //Esta instrucci贸n se ejecuta se caiga o no el programa.
+					bdUtil.desconectar(); //Envia la petici贸n de desconexi贸n al dbms.
 				}
 			}
 		});
