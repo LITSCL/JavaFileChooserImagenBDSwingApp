@@ -25,7 +25,6 @@ import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
 
 public class StartFrame extends JFrame {
-
 	private JPanel contentPane;
 	private JTextField textImagenSeleccionada;
 	private JButton btnSeleccionarImagen;
